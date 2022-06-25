@@ -15,7 +15,7 @@ Build a simple laravel development environment with docker-compose. Compatible w
 
 ## Usage
 
-1. Click [Use this template](https://github.com/ucan-lab/docker-laravel/generate)
+1. Click [Use this template](https://github.com/kazuihitoshi/docker-laravel/generate)
 2. Git clone & change directory
 3. Execute the following command
 

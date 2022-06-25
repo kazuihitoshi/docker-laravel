@@ -10,7 +10,7 @@ services:
       target: ${APP_BUILD_TARGET:-development}
     volumes:
       - type: bind
-        source: ./..
+        source: ./src
         target: /data
       - type: bind 
         source: ./infra/docker/php/docker-php-ext-xdebug.ini
@@ -45,7 +45,7 @@ services:
         mode: host
     volumes:
       - type: bind
-        source: ./..
+        source: ./src
         target: /data
 
   db:
