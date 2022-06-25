@@ -59,3 +59,25 @@ http://localhost
 
 - Base image
   - [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog)
+  
+### dockerのみでの手動作成
+
+```bash
+$ cd docker-laravel && docker-compose up -d
+
+$ docker exec -it docker-laravel_app_1 bash
+# usermod www-data -u 1000 && groupmod www-data -g 1000
+# exit
+
+$ docker exec -it docker-laravel_web_1 bash
+# usermod www-data -u 1000 && groupmod www-data -g 1000
+# exit
+
+ 1000はホストOSでの自分のuid  app_1は状況により数字部分がカウントアップされている。
+
+$ docker exec -it docker-laravel_app_1 bash
+# composer create-project laravel/laravel laravelapp --prefer-dist
+# mv laravelapp/* .
+# mv laravelapp/.[0-z]* .
+# rmdir laravelapp
+# chown www-data:www-data -R .
