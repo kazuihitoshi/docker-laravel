@@ -10,8 +10,11 @@ services:
       target: ${APP_BUILD_TARGET:-development}
     volumes:
       - type: bind
-        source: ./src
+        source: ./..
         target: /data
+      - type: bind 
+        source: ./infra/docker/php/docker-php-ext-xdebug.ini
+        target: /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
       - type: volume
         source: psysh-store
         target: /root/.config/psysh
@@ -42,7 +45,7 @@ services:
         mode: host
     volumes:
       - type: bind
-        source: ./src
+        source: ./..
         target: /data
 
   db:
